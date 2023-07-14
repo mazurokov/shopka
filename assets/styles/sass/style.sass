@@ -10,3 +10,31 @@
 @import "./components/header/style"
 @import "./components/main/style"
 @import "./components/footer/style"
+
+body
+    display: flex
+    flex-direction: column
+
+    main
+        flex: 1
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+.empty
+    display: -webkit-box
+    -webkit-line-clamp: 2
+    -webkit-box-orient: vertical
+    overflow: hidden
+    
+    >span:empty
+        display: none
+    >span.point
+        display: none
+    >span:not(:empty):not(.point)
+       ~ span:not(:empty):not(.point), ~ span:empty ~ span:not(:empty):not(.point)
+            &:before
+                display: inline-block
+                color: red
+                content: "*"
+            
